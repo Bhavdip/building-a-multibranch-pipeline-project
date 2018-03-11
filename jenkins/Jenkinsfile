@@ -115,11 +115,22 @@ pipeline {
     This is required at the top level, and can also be used to override the top level agent settings for individual stages.
     There are really 3 ways to use this (from quickest to most powerful):
     */
-    
+
     /*
     Use agent { docker 'node:6.0' to specify that you want Jenkins to pull the node:6.0 image from Docker Hub, 
     and run the build inside it. This can pretty much be any image you like, 
     your build steps and stages will run inside it. }
     */
-
+    pipeline {
+        agent {
+            docker 'node'
+        }
+        stages {
+            stage("testing 123") {
+                steps {
+                    sh 'node --version'
+                }
+            }
+        }
+    }
 }
