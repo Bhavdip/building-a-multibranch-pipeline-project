@@ -1,5 +1,4 @@
 pipeline {
-    pipeline {
      agent { label 'master' }
      stages {
          stage('deploy') {
@@ -13,6 +12,4 @@ pipeline {
              }
          }
      }
-}
-
 }
