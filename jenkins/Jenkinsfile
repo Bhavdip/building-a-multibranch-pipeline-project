@@ -102,10 +102,24 @@ pipeline {
                 sh 'This will run only if the run was marked as unstable'
                 }
                 changed {
-                sh 'This will run only if the state of the Pipeline has changed')
+                sh 'This will run only if the state of the Pipeline has changed'
                 sh 'For example, the Pipeline was previously failing but is now successful'
                 }
             }
 }
      **/
+
+    /* Controlling your build environment
+    In the quick start examples, you will have seen the agent directive in use. 
+    This specifies where and how Jenkins will run your build. 
+    This is required at the top level, and can also be used to override the top level agent settings for individual stages.
+    There are really 3 ways to use this (from quickest to most powerful):
+    */
+    
+    /*
+    Use agent { docker 'node:6.0' to specify that you want Jenkins to pull the node:6.0 image from Docker Hub, 
+    and run the build inside it. This can pretty much be any image you like, 
+    your build steps and stages will run inside it. }
+    */
+
 }
